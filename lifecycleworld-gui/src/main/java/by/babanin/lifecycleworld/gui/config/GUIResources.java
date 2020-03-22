@@ -1,7 +1,8 @@
 package by.babanin.lifecycleworld.gui.config;
 
 public enum GUIResources {
-    TITLE_MAIN_FRAME("Lifecycle World");
+    TITLE_MAIN_FRAME("Lifecycle World"),
+    TITLE_SETTINGS_FRAME("Settings");
 
     private final String value;
 
