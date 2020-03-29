@@ -6,7 +6,15 @@ public enum GUIResources {
     TITLE_MAP_SIZE_PANEL("Map size"),
     WIDTH("Width"),
     HEIGHT("Height"),
-    TITLE_STEP_PANEL("Step");
+    TITLE_STEP_PANEL("Step"),
+    PLAY("Play"),
+    PAUSE("Pause"),
+    RESTART("Restart"),
+    FAST_FORWARD("Fast-forward"),
+    REWIND("Rewind"),
+    SETTINGS("Settings"),
+    HAND("Hand"),
+    SCALING("Scaling");
 
     private final String value;
 
