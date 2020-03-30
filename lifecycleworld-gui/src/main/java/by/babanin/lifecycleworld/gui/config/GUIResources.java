@@ -14,7 +14,9 @@ public enum GUIResources {
     REWIND("Rewind"),
     SETTINGS("Settings"),
     HAND("Hand"),
-    SCALING("Scaling");
+    SCALING("Scaling"),
+    GENERATION("Generation"),
+    POPULATION("Population");
 
     private final String value;
 

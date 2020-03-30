@@ -1,5 +1,6 @@
 package by.babanin.lifecycleworld.gui.panel;
 
+import by.babanin.lifecycleworld.gui.config.GUIResources;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 
 import javax.swing.*;
@@ -24,14 +25,14 @@ public class StatusPanel extends JPanel implements Initializer {
 
     private JPanel createWestPanel() {
         JPanel westPanel = new JPanel();
-        JLabel generationLabel = new JLabel("Generation");
-        JLabel generationValue = new JLabel("0");
-        JLabel populationLabel = new JLabel("Population");
-        JLabel populationValue = new JLabel("0");
-        westPanel.add(generationLabel);
-        westPanel.add(generationValue);
-        westPanel.add(populationLabel);
-        westPanel.add(populationValue);
+        FieldPanel generationPanel = new FieldPanel(GUIResources.GENERATION);
+        generationPanel.initialize();
+        FieldPanel populationPanel = new FieldPanel(GUIResources.POPULATION);
+        populationPanel.initialize();
+        generationPanel.updateValue("999999999");
+        populationPanel.updateValue("999999999");
+        westPanel.add(generationPanel);
+        westPanel.add(populationPanel);
         return westPanel;
     }
 }
