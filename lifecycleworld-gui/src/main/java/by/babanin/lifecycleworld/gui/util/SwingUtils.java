@@ -29,17 +29,37 @@ public class SwingUtils {
     }
 
     public static ImageIcon loadImage(String path, Dimension size) {
+        BufferedImage bufferedImage = loadBufferedImage(path, size);
         ImageIcon imageIcon = null;
+        if (bufferedImage != null) {
+            imageIcon = new ImageIcon(bufferedImage);
+        }
+        return imageIcon;
+    }
+
+    public static BufferedImage loadBufferedImage(String path, int width, int height) {
+        return loadBufferedImage(path, new Dimension(width, height));
+    }
+
+    public static BufferedImage loadBufferedImage(String path, Dimension size) {
+        BufferedImage bufferedImage = loadBufferedImage(path);
+        if (bufferedImage != null) {
+            bufferedImage = resizeImage(bufferedImage, size);
+        }
+        return bufferedImage;
+    }
+
+    public static BufferedImage loadBufferedImage(String path) {
+        BufferedImage bufferedImage = null;
         try {
             InputStream imageResourceAsStream = SwingUtils.class.getClassLoader().getResourceAsStream(path);
-            assert imageResourceAsStream != null;
-            BufferedImage bufferedImage = ImageIO.read(imageResourceAsStream);
-            bufferedImage = resizeImage(bufferedImage, size);
-            imageIcon = new ImageIcon(bufferedImage);
+            if (imageResourceAsStream != null) {
+                bufferedImage = ImageIO.read(imageResourceAsStream);
+            }
         } catch (IOException e) {
             log.error(buildExceptionMessage(e));
         }
-        return imageIcon;
+        return bufferedImage;
     }
 
     private static BufferedImage resizeImage(BufferedImage resize, Dimension size) {
