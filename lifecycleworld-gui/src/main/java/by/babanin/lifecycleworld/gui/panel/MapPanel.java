@@ -1,6 +1,6 @@
 package by.babanin.lifecycleworld.gui.panel;
 
-import by.babanin.lifecycleworld.gui.action.PullOverAction;
+import by.babanin.lifecycleworld.gui.action.DragMapAction;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
 
@@ -17,8 +17,8 @@ public class MapPanel extends JPanel implements Initializer {
     public void initialize() {
         image = GUIUtils.loadBufferedImage("image.jpg");
         setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
-        addMouseListener(PullOverAction.getInstance());
-        addMouseMotionListener(PullOverAction.getInstance());
+        addMouseListener(DragMapAction.getInstance());
+        addMouseMotionListener(DragMapAction.getInstance());
     }
 
     @Override

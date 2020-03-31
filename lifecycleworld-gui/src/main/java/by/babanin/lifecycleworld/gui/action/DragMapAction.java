@@ -7,14 +7,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-public class PullOverAction extends MouseAdapter implements MouseMotionListener {
-    private static final PullOverAction INSTANCE = new PullOverAction();
+public class DragMapAction extends MouseAdapter implements MouseMotionListener {
+    private static final DragMapAction INSTANCE = new DragMapAction();
     private Point startMousePosition;
     private Point startMapPosition;
 
-    private PullOverAction() {}
+    private DragMapAction() {}
 
-    public static PullOverAction getInstance() {
+    public static DragMapAction getInstance() {
         return INSTANCE;
     }
 
