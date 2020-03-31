@@ -35,7 +35,7 @@ public class MainFrame extends JFrame implements Initializer {
         mapPanel.initialize();
         statusPanel.initialize();
         add(toolPanel, BorderLayout.NORTH);
-        add(new JScrollPane(mapPanel), BorderLayout.CENTER);
+        add(mapPanel, BorderLayout.CENTER);
         add(statusPanel, BorderLayout.SOUTH);
     }
 
