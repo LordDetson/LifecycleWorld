@@ -13,8 +13,6 @@ public enum GUIResources {
     FAST_FORWARD("Fast-forward"),
     REWIND("Rewind"),
     SETTINGS("Settings"),
-    HAND("Hand"),
-    SCALING("Scaling"),
     GENERATION("Generation"),
     POPULATION("Population");
 

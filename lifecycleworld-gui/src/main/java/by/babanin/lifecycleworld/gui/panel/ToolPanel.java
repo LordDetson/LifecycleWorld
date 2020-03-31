@@ -18,16 +18,12 @@ public class ToolPanel extends JToolBar implements Initializer {
     private static final String ICON_FAST_FORWARD_FILENAME = "fast-forward.png";
     private static final String ICON_REWIND_FILENAME = "rewind.png";
     private static final String ICON_SETTING_FILENAME = "settings.png";
-    private static final String ICON_HAND_FILENAME = "hand.png";
-    private static final String ICON_SCALING_FILENAME = "scaling.png";
 
     private JButton playPauseButton;
     private JButton fastForwardButton;
     private JButton rewindButton;
     private JButton restartButton;
     private JButton settingsButton;
-    private JButton handButton;
-    private JButton scalingButton;
 
     @Override
     public void initialize() {
@@ -41,17 +37,12 @@ public class ToolPanel extends JToolBar implements Initializer {
         rewindButton = buildButton(ICON_REWIND_FILENAME, GUIResources.REWIND.getValue());
         restartButton = buildButton(ICON_RESTART_FILENAME, GUIResources.RESTART.getValue());
         settingsButton = buildButton(ICON_SETTING_FILENAME, GUIResources.SETTINGS.getValue());
-        handButton = buildButton(ICON_HAND_FILENAME, GUIResources.HAND.getValue());
-        scalingButton = buildButton(ICON_SCALING_FILENAME, GUIResources.SCALING.getValue());
         add(rewindButton);
         add(playPauseButton);
         add(fastForwardButton);
         addSeparator();
         add(restartButton);
         add(settingsButton);
-        addSeparator();
-        add(handButton);
-        add(scalingButton);
     }
 
     private JButton buildButton(String iconFilename, String toolTipText) {
