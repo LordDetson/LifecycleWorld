@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-public class SwingUtils {
-    private static final Logger log = LoggerFactory.getLogger(SwingUtils.class);
+public class GUIUtils {
+    private static final Logger log = LoggerFactory.getLogger(GUIUtils.class);
 
-    private SwingUtils() {}
+    private GUIUtils() {}
 
     public static void doCenterScreen(Window window) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -52,7 +52,7 @@ public class SwingUtils {
     public static BufferedImage loadBufferedImage(String path) {
         BufferedImage bufferedImage = null;
         try {
-            InputStream imageResourceAsStream = SwingUtils.class.getClassLoader().getResourceAsStream(path);
+            InputStream imageResourceAsStream = GUIUtils.class.getClassLoader().getResourceAsStream(path);
             if (imageResourceAsStream != null) {
                 bufferedImage = ImageIO.read(imageResourceAsStream);
             }

@@ -5,7 +5,7 @@ import by.babanin.lifecycleworld.gui.panel.MapPanel;
 import by.babanin.lifecycleworld.gui.panel.StatusPanel;
 import by.babanin.lifecycleworld.gui.panel.ToolPanel;
 import by.babanin.lifecycleworld.gui.util.Initializer;
-import by.babanin.lifecycleworld.gui.util.SwingUtils;
+import by.babanin.lifecycleworld.gui.util.GUIUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,7 @@ public class MainFrame extends JFrame implements Initializer {
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setResizable(false);
-        SwingUtils.doCenterScreen(this);
+        GUIUtils.doCenterScreen(this);
     }
 
     private void initComponents() {

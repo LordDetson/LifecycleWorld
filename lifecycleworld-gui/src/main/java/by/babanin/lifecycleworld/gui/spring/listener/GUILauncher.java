@@ -2,7 +2,7 @@ package by.babanin.lifecycleworld.gui.spring.listener;
 
 import by.babanin.lifecycleworld.gui.config.GUIProperties;
 import by.babanin.lifecycleworld.gui.frame.MainFrame;
-import by.babanin.lifecycleworld.gui.util.SwingUtils;
+import by.babanin.lifecycleworld.gui.util.GUIUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -25,7 +25,7 @@ public class GUILauncher {
                 mainFrame.setVisible(true);
             });
         } catch (Exception e) {
-            log.error(SwingUtils.buildExceptionMessage(e));
+            log.error(GUIUtils.buildExceptionMessage(e));
         }
     }
 }

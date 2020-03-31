@@ -4,7 +4,7 @@ import by.babanin.lifecycleworld.gui.config.GUIProperties;
 import by.babanin.lifecycleworld.gui.config.GUIResources;
 import by.babanin.lifecycleworld.gui.frame.SettingsFrame;
 import by.babanin.lifecycleworld.gui.util.Initializer;
-import by.babanin.lifecycleworld.gui.util.SwingUtils;
+import by.babanin.lifecycleworld.gui.util.GUIUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,7 +47,7 @@ public class ToolPanel extends JToolBar implements Initializer {
 
     private JButton buildButton(String iconFilename, String toolTipText) {
         JButton button = new JButton();
-        button.setIcon(SwingUtils.loadImage(ICON_PATH + iconFilename, BUTTON_SIZE));
+        button.setIcon(GUIUtils.loadImage(ICON_PATH + iconFilename, BUTTON_SIZE));
         button.setToolTipText(toolTipText);
         button.setFocusPainted(false);
         return button;
@@ -56,10 +56,10 @@ public class ToolPanel extends JToolBar implements Initializer {
     private void initActions() {
         playPauseButton.addActionListener(e -> {
             if (playPauseButton.getToolTipText().equals(GUIResources.PLAY.getValue())) {
-                playPauseButton.setIcon(SwingUtils.loadImage(ICON_PATH + ICON_PAUSE_FILENAME, BUTTON_SIZE));
+                playPauseButton.setIcon(GUIUtils.loadImage(ICON_PATH + ICON_PAUSE_FILENAME, BUTTON_SIZE));
                 playPauseButton.setToolTipText(GUIResources.PAUSE.getValue());
             } else {
-                playPauseButton.setIcon(SwingUtils.loadImage(ICON_PATH + ICON_PLAY_FILENAME, BUTTON_SIZE));
+                playPauseButton.setIcon(GUIUtils.loadImage(ICON_PATH + ICON_PLAY_FILENAME, BUTTON_SIZE));
                 playPauseButton.setToolTipText(GUIResources.PLAY.getValue());
             }
         });
