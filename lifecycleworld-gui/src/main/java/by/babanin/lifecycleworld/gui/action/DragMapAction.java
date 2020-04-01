@@ -21,7 +21,7 @@ public class DragMapAction extends MouseAdapter implements MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         MapPanel map = (MapPanel) e.getSource();
-        startMapPosition = new Point(map.getPoint());
+        startMapPosition = map.getPosition();
         startMousePosition = e.getPoint();
     }
 
