@@ -23,6 +23,7 @@ public class GUILauncher {
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.initialize();
                 mainFrame.setVisible(true);
+                mainFrame.getMapPanel().repaintFullCenterArea();
             });
         } catch (Exception e) {
             log.error(GUIUtils.buildExceptionMessage(e));

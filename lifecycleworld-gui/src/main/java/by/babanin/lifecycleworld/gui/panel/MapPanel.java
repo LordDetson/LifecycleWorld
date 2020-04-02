@@ -55,4 +55,32 @@ public class MapPanel extends JPanel implements Initializer {
     public void setMapSize(Dimension mapSize) {
         this.mapSize = mapSize;
     }
+
+    public void fillFullArea() {
+        Dimension panelSize = getSize();
+        double coefficient = mapSize.height / (mapSize.width * 1.0);
+        mapSize.width = panelSize.width;
+        mapSize.height = (int) (panelSize.width * coefficient);
+        if (mapSize.height > panelSize.height) {
+            mapSize.width = (int) (panelSize.height / coefficient);
+            mapSize.height = panelSize.height;
+        }
+    }
+
+    public void doCenterArea() {
+        Dimension panelSize = getSize();
+        if (mapSize.height < panelSize.height) {
+            int interval = (panelSize.height - mapSize.height) / 2;
+            getPosition().y += interval;
+        } else {
+            int interval = (panelSize.width - mapSize.width) / 2;
+            getPosition().x += interval;
+        }
+    }
+
+    public void repaintFullCenterArea() {
+        fillFullArea();
+        doCenterArea();
+        repaint();
+    }
 }

@@ -13,6 +13,7 @@ import java.awt.*;
 public class MainFrame extends JFrame implements Initializer {
     private static final int FRAME_WIDTH = 1430;
     private static final int FRAME_HEIGHT = 760;
+    private MapPanel mapPanel;
 
     @Override
     public void initialize() {
@@ -29,7 +30,7 @@ public class MainFrame extends JFrame implements Initializer {
 
     private void initComponents() {
         ToolPanel toolPanel = new ToolPanel();
-        MapPanel mapPanel = new MapPanel();
+        mapPanel = new MapPanel();
         StatusPanel statusPanel = new StatusPanel();
         toolPanel.initialize();
         mapPanel.initialize();
@@ -39,4 +40,7 @@ public class MainFrame extends JFrame implements Initializer {
         add(statusPanel, BorderLayout.SOUTH);
     }
 
+    public MapPanel getMapPanel() {
+        return mapPanel;
+    }
 }
