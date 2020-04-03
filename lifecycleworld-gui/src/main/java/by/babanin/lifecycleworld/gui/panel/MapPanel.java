@@ -1,7 +1,7 @@
 package by.babanin.lifecycleworld.gui.panel;
 
 import by.babanin.lifecycleworld.gui.action.DragMapAction;
-import by.babanin.lifecycleworld.gui.action.MouseWheelEventDemo;
+import by.babanin.lifecycleworld.gui.action.ResizeMapAction;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
 
@@ -21,7 +21,7 @@ public class MapPanel extends JPanel implements Initializer {
         mapSize = new Dimension(image.getWidth(), image.getHeight());
         addMouseListener(DragMapAction.getInstance());
         addMouseMotionListener(DragMapAction.getInstance());
-        addMouseWheelListener(new MouseWheelEventDemo(mapSize));
+        addMouseWheelListener(new ResizeMapAction(mapSize));
     }
 
     @Override

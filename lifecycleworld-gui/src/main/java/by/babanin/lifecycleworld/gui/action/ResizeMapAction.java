@@ -6,15 +6,15 @@ import java.awt.*;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class MouseWheelEventDemo implements MouseWheelListener {
+public class ResizeMapAction implements MouseWheelListener {
     private static final int COEFFICIENT = 15;
     private final Dimension interval;
 
-    public MouseWheelEventDemo(Dimension size) {
+    public ResizeMapAction(Dimension size) {
         this(size.width, size.height);
     }
 
-    public MouseWheelEventDemo(int width, int height) {
+    public ResizeMapAction(int width, int height) {
         interval = new Dimension(width / COEFFICIENT, height / COEFFICIENT);
     }
 
