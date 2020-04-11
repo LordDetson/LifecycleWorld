@@ -3,8 +3,8 @@ package by.babanin.lifecycleworld.gui.panel;
 import by.babanin.lifecycleworld.gui.config.GUIProperties;
 import by.babanin.lifecycleworld.gui.config.GUIResources;
 import by.babanin.lifecycleworld.gui.frame.SettingsFrame;
-import by.babanin.lifecycleworld.gui.util.Initializer;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
+import by.babanin.lifecycleworld.gui.util.Initializer;
 
 import javax.swing.*;
 import java.awt.*;

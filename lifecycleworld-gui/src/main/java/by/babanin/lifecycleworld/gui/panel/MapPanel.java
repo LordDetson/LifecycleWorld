@@ -2,32 +2,64 @@ package by.babanin.lifecycleworld.gui.panel;
 
 import by.babanin.lifecycleworld.gui.action.DragMapAction;
 import by.babanin.lifecycleworld.gui.action.ResizeMapAction;
+import by.babanin.lifecycleworld.gui.model.MapModel;
+import by.babanin.lifecycleworld.gui.shape.Hexagon;
 import by.babanin.lifecycleworld.gui.util.Initializer;
-import by.babanin.lifecycleworld.gui.util.GUIUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class MapPanel extends JPanel implements Initializer {
+    private static final Color BACKGROUND_COLOR = Color.BLACK;
 
+    private final transient MapModel mapModel;
     private Point position = new Point(0, 0);
     private Dimension mapSize;
-    private transient BufferedImage image;
+    private transient BufferedImage mapImage;
+
+    public MapPanel(MapModel mapModel) {
+        this.mapModel = mapModel;
+    }
 
     @Override
     public void initialize() {
-        image = GUIUtils.loadBufferedImage("image.jpg");
-        mapSize = new Dimension(image.getWidth(), image.getHeight());
+        mapImage = createMapImage();
+        mapSize = new Dimension(mapImage.getWidth(), mapImage.getHeight());
         addMouseListener(DragMapAction.getInstance());
         addMouseMotionListener(DragMapAction.getInstance());
         addMouseWheelListener(new ResizeMapAction(mapSize));
+        setBackground(BACKGROUND_COLOR);
+    }
+
+    private BufferedImage createMapImage() {
+        BufferedImage image = new BufferedImage(calcWidth(), calcHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics g = image.getGraphics();
+        g.setColor(BACKGROUND_COLOR);
+        g.fillRect(0, 0, image.getWidth(), image.getHeight());
+        for (int i = 0; i < mapModel.getRows(); i++) {
+            for (int j = 0; j < mapModel.getColumnsByRow(i); j++) {
+                Hexagon hexagon = mapModel.get(i, j);
+                g.drawImage(Hexagon.IMAGE, (int) hexagon.getX(), (int) hexagon.getY(), Hexagon.SIZE.width, Hexagon.SIZE.height, this);
+            }
+        }
+        return image;
+    }
+
+    private int calcHeight() {
+        int rows = mapModel.getRows();
+        int height = (int) (Math.ceil(rows / 2.) * Hexagon.SIZE.height);
+        return rows % 2 == 0 ? height + Hexagon.SIZE.height / 2 : height;
+    }
+
+    private int calcWidth() {
+        return (mapModel.getMaxColumns() * (Hexagon.SIZE.width + Hexagon.SIZE.width / 2)) - Hexagon.SIZE.width / 2;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, (int) position.getX(), (int) position.getY(), mapSize.width, mapSize.height, this);
+        g.drawImage(mapImage, (int) position.getX(), (int) position.getY(), mapSize.width, mapSize.height, this);
     }
 
     public void updateMapPosition(Point newPosition) {

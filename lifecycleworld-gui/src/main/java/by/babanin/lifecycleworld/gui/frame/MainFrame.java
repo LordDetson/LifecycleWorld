@@ -1,11 +1,12 @@
 package by.babanin.lifecycleworld.gui.frame;
 
 import by.babanin.lifecycleworld.gui.config.GUIResources;
+import by.babanin.lifecycleworld.gui.model.MapModel;
 import by.babanin.lifecycleworld.gui.panel.MapPanel;
 import by.babanin.lifecycleworld.gui.panel.StatusPanel;
 import by.babanin.lifecycleworld.gui.panel.ToolPanel;
-import by.babanin.lifecycleworld.gui.util.Initializer;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
+import by.babanin.lifecycleworld.gui.util.Initializer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,15 +30,20 @@ public class MainFrame extends JFrame implements Initializer {
     }
 
     private void initComponents() {
+        initMapPanel();
         ToolPanel toolPanel = new ToolPanel();
-        mapPanel = new MapPanel();
         StatusPanel statusPanel = new StatusPanel();
         toolPanel.initialize();
-        mapPanel.initialize();
         statusPanel.initialize();
         add(toolPanel, BorderLayout.NORTH);
         add(mapPanel, BorderLayout.CENTER);
         add(statusPanel, BorderLayout.SOUTH);
+    }
+
+    private void initMapPanel() {
+        MapModel mapModel = new MapModel(10, 10, true);
+        mapPanel = new MapPanel(mapModel);
+        mapPanel.initialize();
     }
 
     public MapPanel getMapPanel() {

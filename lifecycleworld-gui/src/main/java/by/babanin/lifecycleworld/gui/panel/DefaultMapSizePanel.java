@@ -44,8 +44,8 @@ public class DefaultMapSizePanel extends JPanel implements Initializer {
         add(mapHeightField, mapHeightFieldConstraints);
     }
 
-    private static final class DefaultSpinnerMapModel extends SpinnerNumberModel {
-        private static final Integer DEFAULT_MAP_SIZE = 5;
+    public static final class DefaultSpinnerMapModel extends SpinnerNumberModel {
+        public static final Integer DEFAULT_MAP_SIZE = 5;
         private static final Integer MAX_MAP_SIZE = 100;
         private static final Integer MIN_MAP_SIZE = 1;
         private static final Integer SPINNER_STEP = 1;
