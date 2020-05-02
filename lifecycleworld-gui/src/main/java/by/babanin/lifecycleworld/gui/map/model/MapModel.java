@@ -1,6 +1,6 @@
-package by.babanin.lifecycleworld.gui.model;
+package by.babanin.lifecycleworld.gui.map.model;
 
-import by.babanin.lifecycleworld.gui.shape.Hexagon;
+import by.babanin.lifecycleworld.gui.map.hexagon.Hexagon;
 
 import java.awt.*;
 import java.util.ArrayList;

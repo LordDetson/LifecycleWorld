@@ -1,6 +1,6 @@
 package by.babanin.lifecycleworld.gui.action;
 
-import by.babanin.lifecycleworld.gui.panel.MapPanel;
+import by.babanin.lifecycleworld.gui.map.panel.MapPanel;
 
 import java.awt.*;
 import java.awt.event.MouseWheelEvent;

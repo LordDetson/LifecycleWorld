@@ -1,9 +1,9 @@
-package by.babanin.lifecycleworld.gui.panel;
+package by.babanin.lifecycleworld.gui.map.panel;
 
 import by.babanin.lifecycleworld.gui.action.DragMapAction;
 import by.babanin.lifecycleworld.gui.action.ResizeMapAction;
-import by.babanin.lifecycleworld.gui.model.MapModel;
-import by.babanin.lifecycleworld.gui.shape.Hexagon;
+import by.babanin.lifecycleworld.gui.map.model.MapModel;
+import by.babanin.lifecycleworld.gui.map.hexagon.Hexagon;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 
 import javax.swing.*;
@@ -40,7 +40,7 @@ public class MapPanel extends JPanel implements Initializer {
         for (int i = 0; i < mapModel.getRows(); i++) {
             for (int j = 0; j < mapModel.getColumnsByRow(i); j++) {
                 Hexagon hexagon = mapModel.get(i, j);
-                g.drawImage(Hexagon.IMAGE, (int) hexagon.getX(), (int) hexagon.getY(), Hexagon.SIZE.width, Hexagon.SIZE.height, this);
+                g.drawImage(hexagon.image, (int) hexagon.getX(), (int) hexagon.getY(), this);
             }
         }
         return image;

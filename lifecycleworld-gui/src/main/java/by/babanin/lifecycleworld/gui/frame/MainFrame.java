@@ -1,8 +1,8 @@
 package by.babanin.lifecycleworld.gui.frame;
 
 import by.babanin.lifecycleworld.gui.config.GUIResources;
-import by.babanin.lifecycleworld.gui.model.MapModel;
-import by.babanin.lifecycleworld.gui.panel.MapPanel;
+import by.babanin.lifecycleworld.gui.map.model.MapModel;
+import by.babanin.lifecycleworld.gui.map.panel.MapPanel;
 import by.babanin.lifecycleworld.gui.panel.StatusPanel;
 import by.babanin.lifecycleworld.gui.panel.ToolPanel;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
