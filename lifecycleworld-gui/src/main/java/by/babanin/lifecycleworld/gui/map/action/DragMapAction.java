@@ -1,4 +1,4 @@
-package by.babanin.lifecycleworld.gui.action;
+package by.babanin.lifecycleworld.gui.map.action;
 
 import by.babanin.lifecycleworld.gui.map.panel.MapPanel;
 

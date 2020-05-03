@@ -41,7 +41,7 @@ public class MainFrame extends JFrame implements Initializer {
     }
 
     private void initMapPanel() {
-        MapModel mapModel = new MapModel(10, 10);
+        MapModel mapModel = new MapModel(100, 200);
         mapPanel = new MapPanel(mapModel);
         mapPanel.initialize();
     }
