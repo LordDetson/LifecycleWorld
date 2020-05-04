@@ -34,6 +34,22 @@ public class MapZoomer implements MouseWheelListener {
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         MapPanel mapPanel = (MapPanel) e.getSource();
+        Point mousePositionRelativeToMap = getMousePositionRelativeToMap(e);
+        Dimension beforeMapSize = mapPanel.getMapSize();
+        double coefficientX = mousePositionRelativeToMap.x / (double) beforeMapSize.width;
+        double coefficientY = mousePositionRelativeToMap.y / (double) beforeMapSize.height;
+        scale(e);
+        Dimension afterMapSize = mapPanel.getMapSize();
+        Point mousePosition = e.getPoint();
+        Point newMapPosition = new Point(
+                mousePosition.x - (int) (afterMapSize.width * coefficientX),
+                mousePosition.y - (int) (afterMapSize.height * coefficientY)
+        );
+        mapPanel.updateMapPosition(newMapPosition);
+    }
+
+    private void scale(MouseWheelEvent e) {
+        MapPanel mapPanel = (MapPanel) e.getSource();
         if (isFirst) {
             isFirst = false;
             Dimension originalSize = mapPanel.getMapSize();
@@ -57,4 +73,14 @@ public class MapZoomer implements MouseWheelListener {
         return sizes.get(currentIndexSize);
     }
 
+    private static Point getMousePositionRelativeToMap(MouseWheelEvent e) {
+        MapPanel mapPanel = (MapPanel) e.getSource();
+        Point mousePositionRelativeToArea = e.getPoint();
+        Point mapPosition = mapPanel.getPosition();
+
+        Point mousePositionRelativeToMap = new Point(mousePositionRelativeToArea);
+        mousePositionRelativeToMap.x -= mapPosition.x;
+        mousePositionRelativeToMap.y -= mapPosition.y;
+        return mousePositionRelativeToMap;
+    }
 }
