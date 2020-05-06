@@ -4,6 +4,7 @@ import by.babanin.lifecycleworld.gui.map.action.DragMapAction;
 import by.babanin.lifecycleworld.gui.map.action.MapZoomer;
 import by.babanin.lifecycleworld.gui.map.converter.MapModelToImageConverter;
 import by.babanin.lifecycleworld.gui.map.model.MapModel;
+import by.babanin.lifecycleworld.gui.map.model.MapSize;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 
 import javax.swing.*;
@@ -24,12 +25,24 @@ public class MapPanel extends JPanel implements Initializer {
 
     @Override
     public void initialize() {
+        initComponents();
+        initActions();
+    }
+
+    private void initComponents() {
         mapImage = MapModelToImageConverter.convert(mapModel, BACKGROUND_COLOR, this);
         mapSize = new Dimension(mapImage.getWidth(), mapImage.getHeight());
+        setBackground(BACKGROUND_COLOR);
+    }
+
+    private void initActions() {
         addMouseListener(DragMapAction.getInstance());
         addMouseMotionListener(DragMapAction.getInstance());
         addMouseWheelListener(MapZoomer.getInstance());
-        setBackground(BACKGROUND_COLOR);
+    }
+
+    private void updateMap() {
+        initComponents();
     }
 
     @Override
@@ -46,6 +59,12 @@ public class MapPanel extends JPanel implements Initializer {
     public void updateMapSize(Dimension newSize) {
         setMapSize(newSize);
         repaint();
+    }
+
+    public void updateMapModelSize(MapSize mapSize) {
+        mapModel.setMapSize(mapSize);
+        updateMap();
+        repaintFullCenterArea();
     }
 
     public Point getPosition() {

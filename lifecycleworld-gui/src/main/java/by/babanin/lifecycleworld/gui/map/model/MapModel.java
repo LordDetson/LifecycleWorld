@@ -41,6 +41,10 @@ public class MapModel {
         return new Hexagon(center);
     }
 
+    private void updateModel() {
+        createMap();
+    }
+
     public Hexagon get(int indexRow, int indexColumn) {
         return map.get(indexRow).get(indexColumn);
     }
@@ -52,4 +56,11 @@ public class MapModel {
     public int getColumns() {
         return columns;
     }
+
+    public void setMapSize(MapSize mapSize) {
+        rows = mapSize.getRows();
+        columns = mapSize.getColumns();
+        updateModel();
+    }
+
 }

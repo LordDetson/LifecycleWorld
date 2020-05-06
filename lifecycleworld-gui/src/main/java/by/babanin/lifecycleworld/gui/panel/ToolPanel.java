@@ -2,7 +2,8 @@ package by.babanin.lifecycleworld.gui.panel;
 
 import by.babanin.lifecycleworld.gui.config.GUIProperties;
 import by.babanin.lifecycleworld.gui.config.GUIResources;
-import by.babanin.lifecycleworld.gui.frame.SettingsFrame;
+import by.babanin.lifecycleworld.gui.dialog.SettingsDialog;
+import by.babanin.lifecycleworld.gui.map.panel.MapPanel;
 import by.babanin.lifecycleworld.gui.util.GUIUtils;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 
@@ -19,16 +20,23 @@ public class ToolPanel extends JToolBar implements Initializer {
     private static final String ICON_REWIND_FILENAME = "rewind.png";
     private static final String ICON_SETTING_FILENAME = "settings.png";
 
+    private final MapPanel mapPanel;
+
     private JButton playPauseButton;
     private JButton fastForwardButton;
     private JButton rewindButton;
     private JButton restartButton;
     private JButton settingsButton;
 
+    public ToolPanel(MapPanel mapPanel) {
+        this.mapPanel = mapPanel;
+    }
+
     @Override
     public void initialize() {
         initComponents();
         initActions();
+        composeComponents();
     }
 
     private void initComponents() {
@@ -37,12 +45,6 @@ public class ToolPanel extends JToolBar implements Initializer {
         rewindButton = buildButton(ICON_REWIND_FILENAME, GUIResources.REWIND.getValue());
         restartButton = buildButton(ICON_RESTART_FILENAME, GUIResources.RESTART.getValue());
         settingsButton = buildButton(ICON_SETTING_FILENAME, GUIResources.SETTINGS.getValue());
-        add(rewindButton);
-        add(playPauseButton);
-        add(fastForwardButton);
-        addSeparator();
-        add(restartButton);
-        add(settingsButton);
     }
 
     private JButton buildButton(String iconFilename, String toolTipText) {
@@ -64,10 +66,19 @@ public class ToolPanel extends JToolBar implements Initializer {
             }
         });
         settingsButton.addActionListener(e -> {
-            SettingsFrame settingsFrame = new SettingsFrame();
-            settingsFrame.initialize();
-            settingsFrame.setVisible(true);
+            SettingsDialog settingsDialog = new SettingsDialog(mapPanel);
+            settingsDialog.initialize();
+            settingsDialog.setVisible(true);
         });
+    }
+
+    private void composeComponents() {
+        add(rewindButton);
+        add(playPauseButton);
+        add(fastForwardButton);
+        addSeparator();
+        add(restartButton);
+        add(settingsButton);
     }
 
 }

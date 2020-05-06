@@ -4,8 +4,8 @@ public enum GUIResources {
     TITLE_MAIN_FRAME("Lifecycle World"),
     TITLE_SETTINGS_FRAME("Settings"),
     TITLE_MAP_SIZE_PANEL("Map size"),
-    WIDTH("Width"),
-    HEIGHT("Height"),
+    COLUMNS("Columns"),
+    ROWS("Rows"),
     TITLE_STEP_PANEL("Step"),
     PLAY("Play"),
     PAUSE("Pause"),
@@ -14,7 +14,9 @@ public enum GUIResources {
     REWIND("Rewind"),
     SETTINGS("Settings"),
     GENERATION("Generation"),
-    POPULATION("Population");
+    POPULATION("Population"),
+    OK("OK"),
+    CANCEL("Cancel");
 
     private final String value;
 

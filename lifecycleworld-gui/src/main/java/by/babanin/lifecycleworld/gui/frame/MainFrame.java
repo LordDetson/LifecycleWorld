@@ -31,7 +31,7 @@ public class MainFrame extends JFrame implements Initializer {
 
     private void initComponents() {
         initMapPanel();
-        ToolPanel toolPanel = new ToolPanel();
+        ToolPanel toolPanel = new ToolPanel(mapPanel);
         StatusPanel statusPanel = new StatusPanel();
         toolPanel.initialize();
         statusPanel.initialize();
