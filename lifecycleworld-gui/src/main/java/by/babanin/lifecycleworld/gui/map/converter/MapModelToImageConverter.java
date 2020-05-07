@@ -28,6 +28,6 @@ public class MapModelToImageConverter {
     }
 
     private static int calcWidth(MapModel mapModel) {
-        return (int) ((mapModel.getColumns() * (Hexagon.SIZE.width * 0.75)) + (Hexagon.SIZE.width * 0.25));
+        return (int) ((mapModel.getColumns() * Hexagon.SIZE.width * 0.742) + Hexagon.SIZE.width * 0.25);
     }
 }
