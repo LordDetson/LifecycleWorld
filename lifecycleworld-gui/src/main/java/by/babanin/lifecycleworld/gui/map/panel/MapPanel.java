@@ -98,13 +98,8 @@ public class MapPanel extends JPanel implements Initializer {
 
     public void doCenterArea() {
         Dimension panelSize = getSize();
-        if (mapSize.height < panelSize.height) {
-            int interval = (panelSize.height - mapSize.height) / 2;
-            getPosition().y += interval;
-        } else {
-            int interval = (panelSize.width - mapSize.width) / 2;
-            getPosition().x += interval;
-        }
+        getPosition().y = (panelSize.height - mapSize.height) / 2;
+        getPosition().x = (panelSize.width - mapSize.width) / 2;
     }
 
     public void repaintFullCenterArea() {
