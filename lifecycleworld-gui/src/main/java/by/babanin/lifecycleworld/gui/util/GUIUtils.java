@@ -7,6 +7,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -75,5 +77,12 @@ public class GUIUtils {
         final StringBuilder builder = new StringBuilder().append(e.getClass().getName()).append(": ").append(e.getMessage()).append("\n");
         Arrays.stream(e.getStackTrace()).forEach(stackTraceElement -> builder.append("\t").append(stackTraceElement.toString()).append("\n"));
         return builder.toString();
+    }
+
+    public static BufferedImage imageDeepClone(BufferedImage image) {
+        ColorModel cm = image.getColorModel();
+        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+        WritableRaster raster = image.copyData(null);
+        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 }
