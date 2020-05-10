@@ -13,6 +13,7 @@ public enum GUIResources {
     FAST_FORWARD("Fast-forward"),
     REWIND("Rewind"),
     SETTINGS("Settings"),
+    FULL_WINDOW("Full window"),
     GENERATION("Generation"),
     POPULATION("Population"),
     OK("OK"),

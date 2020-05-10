@@ -19,6 +19,7 @@ public class ToolPanel extends JToolBar implements Initializer {
     private static final String ICON_FAST_FORWARD_FILENAME = "fast-forward.png";
     private static final String ICON_REWIND_FILENAME = "rewind.png";
     private static final String ICON_SETTING_FILENAME = "settings.png";
+    private static final String ICON_FULL_WINDOW = "full-window.png";
 
     private final MapPanel mapPanel;
 
@@ -27,6 +28,7 @@ public class ToolPanel extends JToolBar implements Initializer {
     private JButton rewindButton;
     private JButton restartButton;
     private JButton settingsButton;
+    private JButton fullWindow;
 
     public ToolPanel(MapPanel mapPanel) {
         this.mapPanel = mapPanel;
@@ -45,6 +47,7 @@ public class ToolPanel extends JToolBar implements Initializer {
         rewindButton = buildButton(ICON_REWIND_FILENAME, GUIResources.REWIND.getValue());
         restartButton = buildButton(ICON_RESTART_FILENAME, GUIResources.RESTART.getValue());
         settingsButton = buildButton(ICON_SETTING_FILENAME, GUIResources.SETTINGS.getValue());
+        fullWindow = buildButton(ICON_FULL_WINDOW, GUIResources.FULL_WINDOW.getValue());
     }
 
     private JButton buildButton(String iconFilename, String toolTipText) {
@@ -70,6 +73,7 @@ public class ToolPanel extends JToolBar implements Initializer {
             settingsDialog.initialize();
             settingsDialog.setVisible(true);
         });
+        fullWindow.addActionListener(e -> mapPanel.repaintFullCenterArea());
     }
 
     private void composeComponents() {
@@ -79,6 +83,8 @@ public class ToolPanel extends JToolBar implements Initializer {
         addSeparator();
         add(restartButton);
         add(settingsButton);
+        addSeparator();
+        add(fullWindow);
     }
 
 }
