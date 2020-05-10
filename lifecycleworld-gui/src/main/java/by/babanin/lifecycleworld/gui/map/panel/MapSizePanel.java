@@ -1,8 +1,8 @@
 package by.babanin.lifecycleworld.gui.map.panel;
 
 import by.babanin.lifecycleworld.gui.config.GUIResources;
-import by.babanin.lifecycleworld.gui.map.control.HeightMapSpinnerModel;
-import by.babanin.lifecycleworld.gui.map.control.WidthMapSpinnerModel;
+import by.babanin.lifecycleworld.gui.map.control.RowsMapSpinnerModel;
+import by.babanin.lifecycleworld.gui.map.control.ColumnsMapSpinnerModel;
 import by.babanin.lifecycleworld.gui.map.model.MapSize;
 import by.babanin.lifecycleworld.gui.util.Initializer;
 
@@ -27,9 +27,9 @@ public class MapSizePanel extends JPanel implements Initializer {
 
     private void initComponents() {
         columnsMapLabel = new JLabel(GUIResources.COLUMNS.getValue());
-        columnsMapField = new JSpinner(WidthMapSpinnerModel.getInstance());
+        columnsMapField = new JSpinner(ColumnsMapSpinnerModel.getInstance());
         rowsMapLabel = new JLabel(GUIResources.ROWS.getValue());
-        rowsMapField = new JSpinner(HeightMapSpinnerModel.getInstance());
+        rowsMapField = new JSpinner(RowsMapSpinnerModel.getInstance());
     }
 
     private void composeComponents() {

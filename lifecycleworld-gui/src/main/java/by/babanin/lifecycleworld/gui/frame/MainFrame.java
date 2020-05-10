@@ -1,6 +1,8 @@
 package by.babanin.lifecycleworld.gui.frame;
 
 import by.babanin.lifecycleworld.gui.config.GUIResources;
+import by.babanin.lifecycleworld.gui.map.control.ColumnsMapSpinnerModel;
+import by.babanin.lifecycleworld.gui.map.control.RowsMapSpinnerModel;
 import by.babanin.lifecycleworld.gui.map.model.MapModel;
 import by.babanin.lifecycleworld.gui.map.panel.MapPanel;
 import by.babanin.lifecycleworld.gui.panel.StatusPanel;
@@ -41,7 +43,7 @@ public class MainFrame extends JFrame implements Initializer {
     }
 
     private void initMapPanel() {
-        MapModel mapModel = new MapModel(100, 200);
+        MapModel mapModel = new MapModel(RowsMapSpinnerModel.DEFAULT_MAP_ROWS, ColumnsMapSpinnerModel.DEFAULT_MAP_COLUMNS);
         mapPanel = new MapPanel(mapModel);
         mapPanel.initialize();
     }
