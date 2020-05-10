@@ -25,9 +25,7 @@ public class MainFrame extends JFrame implements Initializer {
         initComponents();
         setTitle(GUIResources.TITLE_MAIN_FRAME.getValue());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        setResizable(false);
         GUIUtils.doCenterScreen(this);
     }
 
