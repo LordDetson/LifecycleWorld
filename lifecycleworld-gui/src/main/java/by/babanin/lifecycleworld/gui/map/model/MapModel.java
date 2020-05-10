@@ -1,6 +1,7 @@
 package by.babanin.lifecycleworld.gui.map.model;
 
 import by.babanin.lifecycleworld.gui.map.hexagon.Hexagon;
+import by.babanin.lifecycleworld.gui.map.hexagon.HexagonType;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class MapModel {
                 START_POSITION.x + INTERVAL.x * column,
                 START_POSITION.y + (column % 2 == 0 ? 0 : INTERVAL.y) + Hexagon.SIZE.height * row
         );
-        return new Hexagon(center);
+        return new Hexagon(HexagonType.GRASS, center);
     }
 
     private void updateModel() {
